@@ -58,7 +58,7 @@ class MemobirdNotificationService(BaseNotificationService):
         SEPARATOR = "--------------------------------\n"
         #
         if not message:
-            raise ValueError("You can't print an empty message! It waste paper! :(")
+            raise ValueError("You can't print an empty message! It wastes paper! :(")
         #
         title = kwargs.get(ATTR_TITLE, ATTR_TITLE_DEFAULT)
         title = '[{title}]'.format(title=title)
@@ -85,4 +85,4 @@ class MemobirdNotificationService(BaseNotificationService):
         c.add_text(SEPARATOR)
         #
         printId = self.memobird.print_multi_part_content(c)
-        _LOGGER.info("Print sheduled with id: {id}".format(id=printId))
+        _LOGGER.info("Print sheduled with id: {id}".format(id=printId) + " The message is: {message}".format(message=message))
